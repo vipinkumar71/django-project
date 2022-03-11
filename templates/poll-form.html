@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Poll Create</title>
+</head>
+<body>
+<h2>Create poll</h2>
+<form method =POST action="% url 'create_poll' %}">
+    {% csrf_token %}
+  <label>Title</label><br>
+<input type="text" name="title">
+
+<br><br>
+
+<label>Description</label><br>
+<textarea name="description" cols="10" rows="10"></textarea><br>
+
+<button type="submit">Svae poll</button>
+
+</form>
+
+</body>
+</html>

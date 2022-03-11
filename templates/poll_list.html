@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Poll_list</title>
+</head>
+<body>
+<h2>Polls list</h2>
+{% for poll in polls %}
+<div>{{poll.title}}---{{poll.rating}>
+ <a  href="{% url 'rate' poll.id %}" >[Rate (+1)]</a>}<br>
+</div>
+
+{% endfor %}
+<br><br>
+<a href="{% url 'create_poll' %}">Create New poll</a>
+</body>
+</html>
