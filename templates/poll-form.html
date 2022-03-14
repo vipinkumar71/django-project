@@ -6,7 +6,7 @@
 </head>
 <body>
 <h2>Create poll</h2>
-<form method =POST action="% url 'create_poll' %}">
+<form method ="post" action="{% url 'create_poll' %}">
     {% csrf_token %}
   <label>Title</label><br>
 <input type="text" name="title">
@@ -16,7 +16,7 @@
 <label>Description</label><br>
 <textarea name="description" cols="10" rows="10"></textarea><br>
 
-<button type="submit">Svae poll</button>
+<button type="submit">Save poll</button>
 
 </form>
 

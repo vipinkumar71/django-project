@@ -1,15 +1,20 @@
-<!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Poll_list</title>
+    <title>Poll</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'base/base.css' %}">
 </head>
 <body>
 <h2>Polls list</h2>
 {% for poll in polls %}
-<div>{{poll.title}}---{{poll.rating}>
+<div  class="poll-class">
+    {{poll.title}}---{{poll.rating}}
  <a  href="{% url 'rate' poll.id %}" >[Rate (+1)]</a>}<br>
+
 </div>
+
 
 {% endfor %}
 <br><br>
