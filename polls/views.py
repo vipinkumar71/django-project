@@ -1,3 +1,5 @@
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 from django.shortcuts import render
 
 # Create your views here.
@@ -37,3 +39,24 @@ def create_poll(request):
 
 def poll_details(request, poll_id):
     return render(request, 'poll-details.html', {"poll": Poll.objects.get(id=poll_id)})
+
+
+def login(request):
+    if request.POST:
+        user = authenticate(username=request.POST["username"], password=request.POST["password"])
+        if user:
+            return HttpResponse("You are logged in")
+        return HttpResponse("You are not logged in")
+    return render(request, 'login.html')
+
+
+def registration(request):
+    if request.POST:
+        User.objects.create_user(
+            first_name=request.POST.get("firstname"),
+            last_name=request.POST.get("lastname"),
+            email=request.POST.get("email"),
+            username=request.POST.get("username"),
+            password=request.POST.get("password"))
+        return HttpResponseRedirect("/polls/login")
+    return render(request, 'registration.html')
