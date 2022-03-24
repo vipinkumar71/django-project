@@ -9,7 +9,8 @@ urlpatterns = [
     path('poll-list/', polls),
     path('create-poll/', create_poll, name="create_poll"),
     path('rate/<int:poll_id>', rate, name='rate'),
-    path('poll-details/<int:poll_id>', poll_details, name="poll-details"),
-    path('login', login, name="login_form"),
-    path('registration', registration, name='registration_form')
+    path('poll-details/<int:poll_id>', poll_details, name="poll_details"),
+
 ]
+"""path('login', login, name="login_form"),
+    path('registration', registration, name='registration_form')"""

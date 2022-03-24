@@ -1,12 +1,18 @@
-<!DOCTYPE html>
+  {% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Poll Create</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'base/base.css' %}">
 </head>
+
 <body>
+<!---------- Navigation bar -------------->
+{% include 'nav.html' %}
+
 <h2>Create poll</h2>
-<form method ="post" action="{% url 'create_poll' %}">
+<!-------<form method ="post" action="{% url 'create_poll' %}">
     {% csrf_token %}
   <label>Title</label><br>
 <input type="text" name="title">
@@ -17,6 +23,13 @@
 <textarea name="description" cols="10" rows="10"></textarea><br>
 
 <button type="submit">Save poll</button>
+
+</form>  ------->
+
+<form method="post" action="{% url 'create_poll' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class= 'button right' type="submit">Save Poll</button>
 
 </form>
 

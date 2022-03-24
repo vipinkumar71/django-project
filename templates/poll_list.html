@@ -5,19 +5,22 @@
     <title>Poll</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'base/base.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
+<!---------- Navigation bar -------------->
+{% include 'nav.html' %}
 <h2>Polls list</h2>
 {% for poll in polls %}
-<div  class="poll-class">
-    {{poll.title}}---{{poll.rating}}
- <a  href="{% url 'rate' poll.id %}" >[Rate (+1)]</a>}<br>
-
+<div  class="poll-class box a">
+    <a href="{% url 'poll_details' poll.id %}">
+    <h3 class ="title">{{poll.title}}-{{poll.rating}}</h3>
+    </a>
+    <a class = 'button right' href="{% url 'rate' poll.id%}">Like(+1)</a>
 </div>
-
-
 {% endfor %}
 <br><br>
-<a href="{% url 'create_poll' %}">Create New poll</a>
+<a class = 'button right' href="{% url 'create_poll' %}">Create New poll</a>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>

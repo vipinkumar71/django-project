@@ -16,7 +16,7 @@ class Choice(models.Model):
 
 class Poll(models.Model):
     """polls models"""
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, default='')
     rating = models.IntegerField(default=0)
     description = models.TextField(blank=True, null=True)
     poll_closed = models.BooleanField(default=False)

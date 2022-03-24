@@ -5,7 +5,8 @@
     <title>Login</title>
 </head>
 <body>
-<form   action='{% url "login_form" %}' method=POST>
+<h1>Login</h1>
+<form   action='{% url "login" %}' method=POST>
     {% csrf_token %}
      <label>Username : </label>
   <input type="text" placeholder="Enter Username" name="username" required><br><br>

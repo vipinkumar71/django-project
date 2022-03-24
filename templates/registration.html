@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Registration Template</title>
-
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'base/base.css'%}">
 </head>
 <body>
+<!---------- Navigation bar -------------->
+{% include 'nav.html' %}
+
 <form action='{% url "registration_form" %}' method=POST>
     {% csrf_token %}
   <label>firstName</label>
