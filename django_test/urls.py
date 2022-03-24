@@ -1,5 +1,4 @@
-"""django_test URL Configuration
-
+"""polls_app URL Configuration
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
 Examples:
@@ -15,8 +14,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from polls import views
+
+from polls.views import registration
 
 urlpatterns = [
-    path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
+    path('polls/', include('polls.urls')),
+    path('login', views.login_user, name='login'),
+    path('logout', views.logout_user, name='logout'),
+    path('registration', views.registration, name='registration_form')
 ]
