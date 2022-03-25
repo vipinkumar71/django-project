@@ -20,6 +20,7 @@ class Poll(models.Model):
     rating = models.IntegerField(default=0)
     description = models.TextField(blank=True, null=True)
     poll_closed = models.BooleanField(default=False)
+    logo = models.FileField(upload_to='uploads', blank=True, null=True)
 
     def __str__(self):
         return self.title

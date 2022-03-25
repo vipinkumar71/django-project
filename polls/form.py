@@ -4,7 +4,6 @@ from polls.models import Poll
 
 
 class PollForm(ModelForm):
-
     class Meta:
         model = Poll
-        fields = ['title', 'description']
+        fields = ['title', 'description', 'logo']

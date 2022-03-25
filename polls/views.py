@@ -39,9 +39,11 @@ def create_poll(request):
         description = request.POST.get("description")
         Poll.objects.create(title=title, description=description)"""
     if request.POST:
-        form = PollForm(request.POST)
+        form = PollForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            poll = form.save()
+            file = request.files('logo')
         return HttpResponseRedirect('/polls/poll-list')
     return render(request, "poll-form.html", {"form": PollForm})
 
